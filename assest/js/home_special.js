@@ -254,15 +254,6 @@ if (mgTrack) {
     const categoryInfo = document.querySelector('.category-info');
     const siteModalContent = document.querySelector('.site-modal-content');
 
-    if (categoryInfo && siteModalContent) {
-      const introHeading = categoryInfo.querySelector(':scope > h1');
-      const introParagraph = categoryInfo.querySelector(':scope > p');
-
-      if (introHeading && introParagraph) {
-        siteModalContent.prepend(introParagraph.cloneNode(true));
-        siteModalContent.prepend(introHeading.cloneNode(true));
-      }
-    }
 
     function setMoreContentVisible(visible) {
       siteModalOverlay.classList.toggle('active', visible);

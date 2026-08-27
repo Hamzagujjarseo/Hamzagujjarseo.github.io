@@ -1907,19 +1907,22 @@ a {
     border-radius: 30px;
     fill: var(--white-50);
     height: 40px;
-    background-color: var(--black-40);
-    border: 1px solid #0000;
+    background-color:#212831;
+    border: 1px solid #d8db16;
     box-shadow: 0 0;
     font-family: Nunito;size-adjust:101.44000000000005%;ascent-override:109%;src:local('Arial');
     font-weight: 700;
     font-size: var(--font-size-button);
-    color: var(--white-50);
+    color: var(--black-40);
     outline: 0;
-    transition: padding .22s ease
+    transition: padding .22s ease;
+-webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(14px)    
 }
 
 .search-input:focus {
-    border-color: var(--brand-100)
+    border-color: #eff30a;
+    box-shadow: 0 0 10px #eff30a
 }
 
 .search-input::placeholder {
@@ -3848,7 +3851,7 @@ a {
     position: absolute;
     top: 2px;
     right: 8px;
-    background: linear-gradient(to right, transparent 0%, #ffffff 25%);
+    background: transparent;
     border-top-right-radius: 50%;
     border-bottom-right-radius: 50%;
 }
@@ -3993,8 +3996,8 @@ a {
     justify-content: center;
     gap: 0.35rem;
     white-space: nowrap;
-    border: 1px solid rgba(255, 255, 255, 0.35);
-    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #ffffff59;
+    background: #212831;
 }
 
 .btn-header-icon:hover {
@@ -4462,7 +4465,7 @@ body.search-results-page-mode #search-results-page {
 .icon-search{
     -webkit-mask-image: url(/assest/icon/search.svg);
     mask-image: url(/assest/icon/search.svg);
-    background-color: black;
+    background-color: rgb(248, 248, 248);
 
 }
 

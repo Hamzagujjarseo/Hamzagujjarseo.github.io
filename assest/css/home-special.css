@@ -947,6 +947,7 @@ background-position: right center;
 .category-info p {
   font-size: 14px;
   color: #b8bdd6;
+  font-family: 'Nunito';
 }
 .category-info a {
   color: #f3ef00;
@@ -1464,16 +1465,13 @@ background-position: right center;
     aspect-ratio: 8/5;
     overflow: hidden;
     border-radius: var(--gm-radius);
-    background: #222;
-    text-decoration: none;
-    box-shadow: 0 6px 18px rgba(0,0,0,.35);
-    transition: transform .25s ease, box-shadow .25s ease;
+     text-decoration: none;
+     transition: transform .25s ease, box-shadow .25s ease;
   }
 
   .gm-card:hover{
-    transform: translateY(-6px) scale(1.02);
-    box-shadow: 0 14px 30px rgba(102,87,255,.35);
-  }
+     border: 2px solid #f0d210; 
+   }
 
   .gm-image{
     width: 100%;
