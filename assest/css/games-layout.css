@@ -1113,6 +1113,7 @@
 
     .like-btn {
       border-right: 1px solid var(--border);
+      filter: brightness(0) saturate(100%) invert(58%) sepia(84%) saturate(2607%) hue-rotate(184deg) brightness(101%) contrast(101%);
     }
 
     .like-btn.active img {
@@ -1304,6 +1305,10 @@
 
     .like-btn.active .like-count {
       color: #00b7ff;
+    }
+    .dislike-btn{
+      filter:
+        brightness(0) saturate(100%) invert(18%) sepia(98%) saturate(7431%) hue-rotate(337deg) brightness(101%) contrast(104%);
     }
 
     .dislike-btn.active img {
