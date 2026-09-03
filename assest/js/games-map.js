@@ -1,6 +1,6 @@
 window.GAME_URLS = {
 
-    "2048": { url: "https://fafgames.pro/blog/gyw1ny/", hasOwnPlay: false },
+    "2048": { url: "https://basket-random.pro/adstest.html", hasOwnPlay: false },
   "11-11": { url: "https://fafgames.pro/blog/dgqksn/", hasOwnPlay: false },
   "10-minutes-till-dawn": { url: "https://fafgames.pro/blog/b0igso/", hasOwnPlay: false },
   "1010-color-match": { url: "https://fafgames.pro/blog/lczzll/", hasOwnPlay: false },
