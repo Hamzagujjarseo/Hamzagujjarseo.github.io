@@ -99,6 +99,16 @@ body{
   pointer-events:auto;
 }
 
+.nav-arrow.is-unavailable,
+.rc-nav-arrow.is-unavailable,
+.sc-nav-arrow.is-unavailable,
+.wc-nav-arrow.is-unavailable,
+.fg-nav-next.is-unavailable,
+.fg-nav-prev.is-unavailable{
+  opacity:0 !important;
+  pointer-events:none !important;
+}
+
 @media (max-width: 640px){
   .nav-arrow, .rc-nav-arrow, .sc-nav-arrow, .wc-nav-arrow{
     width:34px; height:34px;

@@ -3,12 +3,31 @@
 // querySelector scoped to that wrapper, so duplicated ids can never
 // break other copies again.
 
+function updateSliderArrows(track, prevBtn, nextBtn){
+  const maxScroll = Math.max(0, track.scrollWidth - track.clientWidth);
+  const scrollLeft = track.scrollLeft;
+
+  prevBtn.classList.toggle('is-unavailable', scrollLeft <= 1);
+  nextBtn.classList.toggle('is-unavailable', scrollLeft >= maxScroll - 1);
+}
+
+function watchSliderArrows(track, prevBtn, nextBtn){
+  const update = () => updateSliderArrows(track, prevBtn, nextBtn);
+
+  track.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  window.addEventListener('load', update, { once: true });
+  requestAnimationFrame(update);
+}
+
 function setupSliders(wrapSelector, trackSelector, arrowSelector, ratio){
   document.querySelectorAll(wrapSelector).forEach((wrap) => {
     const track = wrap.querySelector(trackSelector);
     const nextBtn = wrap.querySelector(arrowSelector + ':not(.left)');
     const prevBtn = wrap.querySelector(arrowSelector + '.left');
     if (!track || !nextBtn || !prevBtn) return;
+
+    watchSliderArrows(track, prevBtn, nextBtn);
 
     function amount(){
       return track.clientWidth * ratio;
@@ -32,6 +51,8 @@ function setupFgSlider(ratio){
     const nextBtn = wrap.querySelector('.fg-nav-next');
     const prevBtn = wrap.querySelector('.fg-nav-prev');
     if (!track || !nextBtn || !prevBtn) return;
+
+    watchSliderArrows(track, prevBtn, nextBtn);
 
     function amount(){
       return track.clientWidth * ratio;
