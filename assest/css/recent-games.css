@@ -73,9 +73,9 @@
 
 .recent-game-card {
   position: relative;
-  flex: 0 0 clamp(82px, 9vw, 108px) !important;
-  width: clamp(82px, 9vw, 108px);
-  min-width: clamp(82px, 9vw, 108px);
+  flex: 0 0 clamp(62px, 9vw, 90px) !important;
+  width: clamp(62px, 9vw, 90px);
+  min-width: clamp(62px, 9vw, 90px);
   aspect-ratio: 1;
   height: auto;
   color: #f4f5f7;

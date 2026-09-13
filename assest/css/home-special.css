@@ -385,7 +385,7 @@ body{
   flex: 0 0 auto;
   width: clamp(6.911rem, calc(5.047rem + 9.322vw), 40.600rem);
   height: clamp(10.341rem, calc(7.539rem + 14.011vw), 60.975rem);
-  border-radius: 6px;
+  border-radius: 20px;
   overflow:hidden;
   background: var(--surface-2);
   scroll-snap-align: start;
@@ -465,7 +465,7 @@ body{
     --gap: 8px;
 
     /* Small card width */
-    --fg-col: clamp(140px, 13.5vw, 326px);
+    --fg-col: clamp(140px, 9.5vw, 326px);
 }
 
 .fg-wrap{
@@ -790,6 +790,29 @@ background-position: right center;
   background-color:#ffffff00;
   background-image:
     linear-gradient(90deg, #622222d9 0%, rgba(24, 16, 29, 0.75) 45%, rgba(80, 39, 39, 0.851) 100%);
+  background-size: contain;
+background-position: right center;
+  background-repeat: no-repeat;
+  border: 1px solid rgba(255,255,255,0.07);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.45);
+}
+ 
+.sp-section-v2 > *{
+  position:relative;
+  z-index:2;
+}
+
+.sp-section-v2{
+ position:relative;
+  max-width: 99%;
+  margin: 14px auto;
+  padding: 14px;
+  border-radius: 5px;
+  overflow:hidden;
+  left: 10;
+  background-color:#ffffff00;
+  background-image:
+    linear-gradient(285deg, #242e07cf 20%, #21755fcf 100%);
   background-size: contain;
 background-position: right center;
   background-repeat: no-repeat;
