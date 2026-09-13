@@ -894,7 +894,7 @@ background-position: right center;
 }
 
 .header-wrapper-h-link-h{
-  color:#ffdd00;
+  color:#fffffe;
   font-size: 12px;
   font-weight: 600;
   text-decoration: none;
@@ -902,6 +902,7 @@ background-position: right center;
 }
 .header-wrapper-h-link-h:hover{
   color:#e4c605;
+   filter: brightness(0) saturate(100%) invert(89%) sepia(84%) saturate(3861%) hue-rotate(357deg) brightness(105%) contrast(104%)!important;
 }
 
 .header-wrapper-h-metarow{
@@ -947,8 +948,13 @@ background-position: right center;
   .header-wrapper-h-metarow{ gap: 6px; }
   .header-wrapper-h-subtitle{ font-size: 12px; } 
 }
-
-
+.title-arrow-more{
+    width: clamp(0.9375rem, 0.8758rem + 0.2597vw, 1.1875rem);
+    height:clamp(0.9375rem, 0.8758rem + 0.2597vw, 1.1875rem);
+    margin-left:10px;
+    filter: brightness(0) invert(1);
+}
+ 
 
 /* ===== Category Section ===== */
 .category-section {
