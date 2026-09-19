@@ -68,7 +68,7 @@
   @media (hover:hover){
     .page-end-action:hover{
       transform:translateY(-2px);
-      background:#24202f;
+      background:#ffdd00;
     }
 
     .page-end-top:hover{
@@ -516,6 +516,7 @@
   .random-game-btn:hover{
     border-color:#ffe000;
     color:#ffe000;
+    background:transparent;
     transform:translateY(-2px);
     box-shadow:0 0 12px rgba(255,224,0,.18);
   }

@@ -140,7 +140,6 @@
   }
 
   function init() {
-    recordCurrentGame();
     renderAll();
     document.querySelectorAll('.recent-games-section').forEach(setupSlider);
   }

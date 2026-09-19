@@ -1,4 +1,58 @@
 document.addEventListener("DOMContentLoaded", function () {
+  const recentStorageKey = 'unblockedgames_recent_games';
+  const maxRecent = 12;
+
+  function readRecentGames() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(recentStorageKey) || '[]');
+      return Array.isArray(saved) ? saved : [];
+    } catch (error) {
+      return [];
+    }
+  }
+
+  function writeRecentGames(games) {
+    try {
+      localStorage.setItem(recentStorageKey, JSON.stringify(games.slice(0, maxRecent)));
+    } catch (error) {
+      // ignore storage failures
+    }
+  }
+
+  function addCurrentGameToRecent() {
+    const slug = window.location.pathname.match(/^\/g\/([^/]+)\/?$/)?.[1];
+    if (!slug) return;
+
+    const titleNode = document.querySelector('h1');
+    const title = titleNode ? titleNode.textContent.trim() : slug.replace(/-/g, ' ');
+    const game = {
+      slug,
+      title,
+      image: '/assest/images/' + slug + '.webp',
+      category: 'Games',
+      url: '/g/' + slug + '/'
+    };
+
+    try {
+      const structuredData = Array.from(document.querySelectorAll('script[type="application/ld+json"]'))
+        .map((script) => {
+          try {
+            return JSON.parse(script.textContent);
+          } catch (error) {
+            return null;
+          }
+        })
+        .find((data) => data && data.applicationSubCategory);
+      if (structuredData?.applicationSubCategory) game.category = structuredData.applicationSubCategory;
+    } catch (error) {
+      // ignore invalid JSON-LD
+    }
+
+    const games = readRecentGames().filter((item) => item.slug !== slug);
+    games.unshift(game);
+    writeRecentGames(games);
+  }
+
   // ==== 1. Current page ka game-slug + data uthao ====
   const wrapper = document.getElementById("gameFrameWrapper");
   const slug = wrapper ? wrapper.dataset.game : null;
@@ -49,6 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Normal flow: humara PLAY button click hone par iframe load hoga
     if (playGameBtn) {
       playGameBtn.addEventListener("click", () => {
+        addCurrentGameToRecent();
         playGameBtn.classList.add("slide-out");
         setTimeout(() => {
           if (gameSplash) gameSplash.style.display = "none";
@@ -79,7 +134,12 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.style.overflow = "hidden";
   }
 
-  if (playBtn) playBtn.addEventListener("click", openMobileOverlay);
+  if (playBtn) {
+    playBtn.addEventListener("click", () => {
+      addCurrentGameToRecent();
+      openMobileOverlay();
+    });
+  }
 
   if (closeBtn && gameOverlay) {
     closeBtn.addEventListener("click", () => {
