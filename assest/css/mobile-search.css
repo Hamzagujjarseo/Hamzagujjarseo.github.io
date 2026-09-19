@@ -406,3 +406,203 @@
   .bns-no-results svg{ width:26px;height:26px;stroke:var(--bottom-nav-muted);fill:none;stroke-width:1.8; }
 
   [hidden]{ display:none !important; }
+
+  .premium-back-top{
+    position:relative;
+    min-width:200px;
+    height:50px;
+    padding:0 16px 0 5px;
+    gap:8px;
+    border:1px solid #ffe044;
+    border-radius:20px;
+    background:linear-gradient(180deg,#ffe52b 0%,#f5c800 100%);
+    color:#101318;
+    font-family:Arial,sans-serif;
+    font-size:17px;
+    font-weight:800;
+    cursor:pointer;
+    overflow:hidden;
+    box-shadow:0 3px 0 #a98700,0 5px 12px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.65);
+    transition:transform .22s ease,box-shadow .22s ease,filter .22s ease;
+  }
+
+  .premium-back-top::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-80%;
+    width:45%;
+    height:100%;
+    background:linear-gradient(105deg,transparent,rgba(255,255,255,.45),transparent);
+    transform:skewX(-20deg);
+    transition:left .55s ease;
+  }
+
+  .premium-back-top:hover::before{ left:140%; }
+
+  .top-arrow{
+    position:relative;
+    z-index:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:24px;
+    height:24px;
+    border-radius:50%;
+    background:#171b21;
+    box-shadow:inset 0 1px 1px rgba(255,255,255,.16),0 1px 2px rgba(0,0,0,.35);
+    transition:transform .25s ease,background .25s ease;
+  }
+
+  .top-arrow svg{
+    width:13px;
+    height:13px;
+    fill:none;
+    stroke:#ffe000;
+    stroke-width:3;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+    transition:transform .25s ease;
+  }
+
+  .top-label{
+    position:relative;
+    z-index:1;
+    white-space:nowrap;
+    line-height:1;
+  }
+
+  .premium-back-top:hover{
+    filter:brightness(1.06);
+    transform:translateY(-3px);
+    box-shadow:0 5px 0 #a98700,0 0 16px rgba(255,215,0,.3),inset 0 1px 0 rgba(255,255,255,.7);
+  }
+
+  .premium-back-top:hover .top-arrow{ transform:translateY(-2px); background:#0c1015; }
+  .premium-back-top:hover .top-arrow svg{ transform:translateY(-2px); }
+
+  .premium-back-top:active{
+    transform:translateY(2px);
+    box-shadow:0 1px 0 #a98700,inset 0 2px 4px rgba(0,0,0,.25);
+  }
+
+  .premium-back-top:focus-visible{ outline:2px solid #fff; outline-offset:3px; }
+
+  .random-game-wrap{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:0;
+    background:transparent;
+  }
+
+  .random-game-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    min-width:200px;
+    height:44px;
+    padding:0 15px;
+    background:transparent;
+    border:1px solid #eeeeeb;
+    border-radius:28px;
+    color:#f4f4f6;
+    font:700 17px/1 'Segoe UI',Arial,sans-serif;
+    cursor:pointer;
+    transition:all .25s ease;
+  }
+
+  .random-game-btn:hover{
+    border-color:#ffe000;
+    color:#ffe000;
+    transform:translateY(-2px);
+    box-shadow:0 0 12px rgba(255,224,0,.18);
+  }
+
+  .random-game-btn:active{ transform:translateY(1px); }
+
+  .dice-stage{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:25px;
+    height:25px;
+    perspective:180px;
+    perspective-origin:center;
+  }
+
+  .dice-cube{
+    position:relative;
+    width:22px;
+    height:22px;
+    transform-style:preserve-3d;
+    transform:rotateX(-25deg) rotateY(35deg) rotateZ(-8deg);
+    transition:transform .3s ease;
+  }
+
+  .random-game-btn:hover .dice-cube{ animation:dice-3d-roll .85s ease-in-out; }
+
+  .cube-face{
+    position:absolute;
+    inset:0;
+    display:grid;
+    grid-template-columns:repeat(3,4px);
+    grid-template-rows:repeat(3,4px);
+    gap:2px;
+    width:22px;
+    height:22px;
+    padding:4px;
+    box-sizing:border-box;
+    background:linear-gradient(135deg,#ff5962,#df1b2c 52%,#850512);
+    border:1px solid #ff858b;
+    border-radius:4px;
+    backface-visibility:visible;
+    box-shadow:inset 1px 1px 1px rgba(255,255,255,.45),inset -2px -2px 3px rgba(70,0,0,.55);
+  }
+
+  .cube-face i{
+    width:4px;
+    height:4px;
+    border-radius:50%;
+    background:#fff;
+    box-shadow:0 1px 1px rgba(0,0,0,.4),inset 0 -1px 1px rgba(0,0,0,.15);
+    opacity:0;
+  }
+
+  .face-front{ transform:translateZ(11px); }
+  .face-back{ transform:rotateY(180deg) translateZ(11px); }
+  .face-right{ transform:rotateY(90deg) translateZ(11px); }
+  .face-left{ transform:rotateY(-90deg) translateZ(11px); }
+  .face-top{ transform:rotateX(90deg) translateZ(11px); }
+  .face-bottom{ transform:rotateX(-90deg) translateZ(11px); }
+
+  .face-front i:nth-child(1),.face-front i:nth-child(3),.face-front i:nth-child(5),.face-front i:nth-child(7),.face-front i:nth-child(9),
+  .face-back i:nth-child(1),.face-back i:nth-child(3),.face-back i:nth-child(4),.face-back i:nth-child(6),.face-back i:nth-child(7),.face-back i:nth-child(9),
+  .face-right i:nth-child(1),.face-right i:nth-child(5),.face-right i:nth-child(9),
+  .face-left i:nth-child(1),.face-left i:nth-child(9),
+  .face-top i:nth-child(1),.face-top i:nth-child(3),.face-top i:nth-child(7),.face-top i:nth-child(9),
+  .face-bottom i:nth-child(5){ opacity:1; }
+
+  @keyframes dice-3d-roll{
+    0%{ transform:rotateX(-25deg) rotateY(35deg) rotateZ(-8deg) translateY(0); }
+    25%{ transform:rotateX(95deg) rotateY(125deg) rotateZ(35deg) translateY(-5px) scale(1.08); }
+    50%{ transform:rotateX(220deg) rotateY(235deg) rotateZ(100deg) translateY(-2px); }
+    75%{ transform:rotateX(320deg) rotateY(330deg) rotateZ(155deg) translateY(-4px); }
+    100%{ transform:rotateX(335deg) rotateY(395deg) rotateZ(172deg) translateY(0); }
+  }
+
+  .random-game-text{ white-space:nowrap; line-height:1; }
+
+  @media (max-width:600px){
+    .premium-back-top{ height:50px; padding-right:14px; font-size:17px; }
+    .premium-back-top .top-arrow{ width:23px; height:23px; }
+    .random-game-btn{ height:50px; padding:0 28px; font-size:17px; }
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    .premium-back-top,.premium-back-top .top-arrow,.premium-back-top .top-arrow svg,.premium-back-top::before,.random-game-btn,.dice-cube{
+      transition:none;
+      animation:none;
+    }
+  }

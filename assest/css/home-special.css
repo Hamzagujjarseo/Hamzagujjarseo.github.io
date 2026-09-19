@@ -38,7 +38,7 @@
     --gap: 8px;
 
     /* Small card width */
-    --fg-col: clamp(140px, 13.5vw, 326px);
+    --gm-col: clamp(140px, 9.5vw, 326px);
 }
 
 *{ box-sizing:border-box; margin:0; padding:0; }
@@ -475,7 +475,7 @@ body{
     --gap: 8px;
 
     /* Small card width */
-    --fg-col: clamp(140px, 9.5vw, 326px);
+    --fg-col: clamp(140px, 13.5vw, 326px);
 }
 
 .fg-wrap{
@@ -1491,7 +1491,7 @@ background-position: right center;
   .gm-card{
     position: relative;
     display:block;
-    width: calc(var(--fg-col) * 2 + var(--gap));
+    width: calc(var(--gm-col) * 2 + var(--gap));
     flex-shrink: 0;
     aspect-ratio: 8/5;
     overflow: hidden;
