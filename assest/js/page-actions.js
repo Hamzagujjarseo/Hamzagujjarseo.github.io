@@ -16,7 +16,7 @@
         window.location.href = playableGames[Math.floor(Math.random() * playableGames.length)].href;
       })
       .catch(function () {
-        window.location.href = '/all-games/';
+        window.location.href = '/all-unblocked-games/';
       });
   }
 
