@@ -8850,15 +8850,159 @@
 
 
         <div class="page-end-actions" aria-label="Page actions">
-            <a class="page-end-action page-end-random" href="/all-games/" data-random-game>
-                <img src="/assest/icon/dice-svgrepo.svg" alt="dice">
-                <span>Random game</span>
-            </a>
+            <div class="random-game-wrap">
+                <button class="page-end-action page-end-random random-game-btn" id="randomGameBtn" type="button" data-random-game>
+                    <span class="dice-stage" aria-hidden="true">
+                        <span class="dice-cube">
+                            <span class="cube-face face-front"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+                            <span class="cube-face face-back"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+                            <span class="cube-face face-right"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+                            <span class="cube-face face-left"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+                            <span class="cube-face face-top"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+                            <span class="cube-face face-bottom"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+                        </span>
+                    </span>
+                    <span class="random-game-text">Random Game</span>
+                </button>
+            </div>
             <button class="page-end-action page-end-top" type="button" data-back-to-top>
                 <img src="/assest/icon/up-arrow.svg" alt="arrow up">
                 <span>Back to top</span>
             </button>
         </div>
+
+        <style>
+            .random-game-wrap {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 0;
+                background: transparent;
+            }
+
+            .random-game-btn {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                min-width: 200px;
+                height: 44px;
+                padding: 0 15px;
+                background: transparent;
+                border: 1px solid #eeeeeb;
+                border-radius: 28px;
+                color: #f4f4f6;
+                font: 700 17px/1 'Segoe UI', Arial, sans-serif;
+                cursor: pointer;
+                transition: all .25s ease;
+            }
+
+            .random-game-btn:hover {
+                border-color: #ffe000;
+                color: #ffe000;
+                transform: translateY(-2px);
+                box-shadow: 0 0 12px rgba(255, 224, 0, .18);
+            }
+
+            .random-game-btn:active {
+                transform: translateY(1px);
+            }
+
+            .dice-stage {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 25px;
+                height: 25px;
+                perspective: 180px;
+                perspective-origin: center;
+            }
+
+            .dice-cube {
+                position: relative;
+                width: 22px;
+                height: 22px;
+                transform-style: preserve-3d;
+                transform: rotateX(-25deg) rotateY(35deg) rotateZ(-8deg);
+                transition: transform .3s ease;
+            }
+
+            .random-game-btn:hover .dice-cube {
+                animation: dice-3d-roll .85s ease-in-out;
+            }
+
+            .cube-face {
+                position: absolute;
+                inset: 0;
+                display: grid;
+                grid-template-columns: repeat(3, 4px);
+                grid-template-rows: repeat(3, 4px);
+                gap: 2px;
+                width: 22px;
+                height: 22px;
+                padding: 4px;
+                box-sizing: border-box;
+                background: linear-gradient(135deg, #ff5962, #df1b2c 52%, #850512);
+                border: 1px solid #ff858b;
+                border-radius: 4px;
+                backface-visibility: visible;
+                box-shadow: inset 1px 1px 1px rgba(255, 255, 255, .45), inset -2px -2px 3px rgba(70, 0, 0, .55);
+            }
+
+            .cube-face i {
+                width: 4px;
+                height: 4px;
+                border-radius: 50%;
+                background: #fff;
+                box-shadow: 0 1px 1px rgba(0, 0, 0, .4), inset 0 -1px 1px rgba(0, 0, 0, .15);
+                opacity: 0;
+            }
+
+            .face-front { transform: translateZ(11px); }
+            .face-back { transform: rotateY(180deg) translateZ(11px); }
+            .face-right { transform: rotateY(90deg) translateZ(11px); }
+            .face-left { transform: rotateY(-90deg) translateZ(11px); }
+            .face-top { transform: rotateX(90deg) translateZ(11px); }
+            .face-bottom { transform: rotateX(-90deg) translateZ(11px); }
+
+            .face-front i:nth-child(1), .face-front i:nth-child(3), .face-front i:nth-child(5), .face-front i:nth-child(7), .face-front i:nth-child(9),
+            .face-back i:nth-child(1), .face-back i:nth-child(3), .face-back i:nth-child(4), .face-back i:nth-child(6), .face-back i:nth-child(7), .face-back i:nth-child(9),
+            .face-right i:nth-child(1), .face-right i:nth-child(5), .face-right i:nth-child(9),
+            .face-left i:nth-child(1), .face-left i:nth-child(9),
+            .face-top i:nth-child(1), .face-top i:nth-child(3), .face-top i:nth-child(7), .face-top i:nth-child(9),
+            .face-bottom i:nth-child(5) {
+                opacity: 1;
+            }
+
+            @keyframes dice-3d-roll {
+                0% { transform: rotateX(-25deg) rotateY(35deg) rotateZ(-8deg) translateY(0); }
+                25% { transform: rotateX(95deg) rotateY(125deg) rotateZ(35deg) translateY(-5px) scale(1.08); }
+                50% { transform: rotateX(220deg) rotateY(235deg) rotateZ(100deg) translateY(-2px); }
+                75% { transform: rotateX(320deg) rotateY(330deg) rotateZ(155deg) translateY(-4px); }
+                100% { transform: rotateX(335deg) rotateY(395deg) rotateZ(172deg) translateY(0); }
+            }
+
+            .random-game-text {
+                white-space: nowrap;
+                line-height: 1;
+            }
+
+            @media (max-width: 600px) {
+                .random-game-btn {
+                    height: 50px;
+                    padding: 0 28px;
+                    font-size: 17px;
+                }
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+                .random-game-btn,
+                .dice-cube {
+                    transition: none;
+                    animation: none;
+                }
+            }
+        </style>
 
         <div class="bottom-nav-wrap mobile-only">
             <nav class="bottom-nav-bar">
