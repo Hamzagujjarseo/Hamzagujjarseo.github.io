@@ -560,24 +560,7 @@
 }
 
 /* Heading wali li — koi bhi extra indent nahi, bilkul flush left */
-.game-content ul > li:has(h3){
-  padding-left: 0;
-  margin-top: 0.2em;
-  margin-bottom: 0.2em;
-}
-
-.game-content ul > li:has(h3)::before{
-  content: none;
-}
-
-.game-content ul > li:has(h3) h3{
-  margin: 0;
-  padding: 0;
-  font-size: 1.15rem;
-  line-height: 1.4;
-  color: var(--heading);
-  font-weight: 600;
-}
+ 
 
 .game-content ol{
   list-style: none;
